@@ -121,3 +121,5 @@ app.get('/', function (request, response) {
 }
 
 console.log('Server running on port ' + port);
+var port = process.env.PORT || 1337;
+server.listen(port);
