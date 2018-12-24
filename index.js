@@ -1,5 +1,6 @@
 ///// npm install edge-sql
 
+var http = require('http');
 var express = require('express');
 var app = express();
 var edge = require('edge-js');
