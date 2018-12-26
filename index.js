@@ -1,6 +1,6 @@
 var http = require('http');
 
-//var express = require('express');
+var express = require('express');
 var edge = require('edge');
 
 //var connectionStr = "Data Source=DOLEV_MAIN\\SQLEXPRESS;Database=GUM;Integrated Security=True";
