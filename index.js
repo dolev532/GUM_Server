@@ -10,7 +10,7 @@ var connectionStr="Server=tcp:gum.database.windows.net,1433;Initial Catalog=GUM_
 var server = http.createServer(function(request, response) {
 
     response.writeHead(200, {"Content-Type": "text/plain"});
-    response.end(request.query.action);
+    response.end("ds");
 
 });
 
