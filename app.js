@@ -2,7 +2,7 @@ var http = require('http');
 
 
 var express = require('express');
-var app = express();
+//var app = express();
 //var edge = require('edge-js');
 
 var server = http.createServer(function(request, response) {
