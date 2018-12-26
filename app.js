@@ -10,7 +10,7 @@ var connectionStr="Server=tcp:gum.database.windows.net,1433;Initial Catalog=GUM_
 
 var SourceByParam = "SELECT";
 
-var port = 12345;
+var port = process.env.PORT || 1337;
 
 app.get('/', function (request, response) {
     
@@ -120,5 +120,5 @@ app.get('/', function (request, response) {
      return dateTime;
 }
 
-app.listen(12345);
+app.listen(port);
 console.log('Server running on port ' + port);
