@@ -1,5 +1,5 @@
 //var mysql = require('../../node_modules/mysql');
-var express = require('../../node_modules/express');
+var express = require('express');
 var app = express();
 
 
