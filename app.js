@@ -3,7 +3,7 @@ var http = require('http');
 
 var express = require('../../node_modules/express');
 var app = express();
-var edge = require('../../node_modules/edge-js');
+var edge = require('D:\home\node_modules\edge-js');
 
 //var edge = require('edge-js');
 
