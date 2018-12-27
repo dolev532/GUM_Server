@@ -3,9 +3,8 @@ var http = require('http');
 
 var express = require('../../node_modules/express');
 var app = express();
-var edge = require('mssql');
-
-//var edge = require('edge-js');
+var Connection = require('tedious').Connection;
+var Request = require('tedious').Request;//var edge = require('edge-js');
 
 var server = http.createServer(function(request, response) {
 
