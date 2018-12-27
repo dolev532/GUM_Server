@@ -1,5 +1,4 @@
-const mysql = require('mysql');
-
+var mysql = require('../../node_modules/mysql');
 var express = require('../../node_modules/express');
 var app = express();
 
