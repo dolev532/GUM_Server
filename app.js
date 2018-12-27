@@ -1,6 +1,5 @@
 var http = require('http');
-const Connection = require('tedious').Connection;
-const Request = require('tedious').Request;
+var Connection = require('tedious');
 
 var express = require('../../node_modules/express');
 var app = express();
