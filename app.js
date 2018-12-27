@@ -1,5 +1,4 @@
-var http = require('http');
-var Connection = require('tedious');
+const mysql = require('mysql');
 
 var express = require('../../node_modules/express');
 var app = express();
