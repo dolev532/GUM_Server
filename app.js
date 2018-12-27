@@ -1,10 +1,10 @@
 var http = require('http');
-
+const Connection = require('tedious').Connection;
+const Request = require('tedious').Request;
 
 var express = require('../../node_modules/express');
 var app = express();
-var Connection = require('tedious').Connection;
-var Request = require('tedious').Request;//var edge = require('edge-js');
+
 
 var server = http.createServer(function(request, response) {
 
