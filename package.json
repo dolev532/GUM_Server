@@ -1,10 +1,14 @@
 {
-    "name": "app-service-GUM-Sever",
-    "description": "Gum Server",
+    "name": "GUM_Server.js",
+    "description": "GUM Server  Node.js sample for Azure App Service",
     "version": "0.0.1",
     "private": true,
     "author": "GUM",
     "scripts": {
-        "start": "node app.js"
+        "start": "node GUM_Server.js"
+    },
+    "dependencies": {
+        "express": "^4.16.4",
+        "mssql": "^4.3.0"
     }
 }
