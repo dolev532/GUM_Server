@@ -107,6 +107,6 @@ app.get('/', function (request, res) {
 }
 
 
-var server = app.listen(12345, function () {
+var server = app.listen(process.env.PORT || 1337, function () {
     console.log('Server is running..');
 });
