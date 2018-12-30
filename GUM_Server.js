@@ -1,20 +1,13 @@
-///// npm install edge-sql
-
 var express = require('express');
 var app = express();
-var edge = require('edge-js');
 
-//var connectionStr = "Data Source=DOLEV_MAIN\\SQLEXPRESS;Database=GUM;Integrated Security=True";
+app.get('/', function (request, res) {
+   
+    var sql = require("mssql");
 
-var connectionStr="Server=tcp:gum.database.windows.net,1433;Initial Catalog=GUM_DB;Persist Security Info=False;User ID=GUM;Password=GISRAELUM!1!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30";
+	var config="Server=tcp:gumisraeldb.database.windows.net,1433;Initial Catalog=GUM;Persist Security Info=False;User ID=GUMDB;Password=!1!GISRAELUM!1!;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30";
 
-var SourceByParam = "SELECT";
-
-var port = 12345;
-
-app.get('/', function (request, response) {
-    
-    var operation = request.query.action;
+	var operation = request.query.action;
 	var Param = request.query.Param;
 	var PArr = Param.split(' ');
 
@@ -63,37 +56,30 @@ app.get('/', function (request, response) {
 		default : SourceByParam = "";
 	}
 	
-
-  
-
-  
-		Param = {
-            connectionString: connectionStr,
-            source: SourceByParam
-        };
-
-		
-	console.log(getDateTime() + " " + operation + " " + PArr[0] );
-
-  
-    var getData = edge.func('sql', Param);
-
-	response.setHeader("Access-Control-Allow-Origin", "*");
-	console.log(getData);
+	
+	
+	sql.close(config);
+	
+    // connect to your database
+    sql.connect(config, function (err) {
     
-    getData(null, function (error, result) {
-        if (error) { console.log(error); return; }
-        if (result) {
-            console.log(result);
-			  var temp = JSON.stringify(result);
-			response.json(temp);
-          
-        }
-        else {
-            console.log("No results");
-        }
+        if (err) console.log(err);
+
+        // create Request object
+        var request = new sql.Request();
+           
+        // query to the database and get the records
+        request.query(SourceByParam, function (err, recordset) {
+            
+            if (err) console.log(err)
+
+            // send records as a response
+            res.send(recordset);
+            
+        });
     });
 });
+
 
  function getDateTime() {
     var now     = new Date(); 
@@ -120,5 +106,7 @@ app.get('/', function (request, response) {
      return dateTime;
 }
 
-app.listen(12345);
-console.log('Server running on port ' + port);
+
+var server = app.listen(12345, function () {
+    console.log('Server is running..');
+});
